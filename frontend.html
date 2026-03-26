@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Register & Login</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1470&q=80') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 2rem 3rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      width: 360px;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: #333;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+    label {
+      margin-bottom: 0.25rem;
+      font-weight: bold;
+      color: #555;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+    button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 0.75rem;
+      border-radius: 4px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    .footer-text {
+      text-align: center;
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: #666;
+    }
+    .footer-text a {
+      color: #4CAF50;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .footer-text a:hover {
+      text-decoration: underline;
+    }
+    /* Hide forms by default */
+    .form-section {
+      display: none;
+    }
+    /* Show active form */
+    .form-section.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Register Form -->
+    <section id="registerSection" class="form-section active">
+      <h2>Create Account</h2>
+      <form id="registerForm">
+        <label for="fullname">Full Name</label>
+        <input type="text" id="fullname" name="fullname" placeholder="Your full name" required />
+        
+        <label for="emailReg">Email Address</label>
+        <input type="email" id="emailReg" name="email" placeholder="you@example.com" required />
+        
+        <label for="passwordReg">Password</label>
+        <input type="password" id="passwordReg" name="password" placeholder="Enter password" required />
+        
+        <label for="confirmPassword">Confirm Password</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm password" required />
+        
+        <button type="submit">Register</button>
+      </form>
+      <div class="footer-text">
+        Already have an account? <a id="showLogin" href="javascript:void(0)">Login here</a>
+      </div>
+    </section>
+
+    <!-- Login Form -->
+    <section id="loginSection" class="form-section">
+      <h2>Login</h2>
+      <form id="loginForm">
+        <label for="emailLogin">Email Address</label>
+        <input type="email" id="emailLogin" name="email" placeholder="you@example.com" required />
+        
+        <label for="passwordLogin">Password</label>
+        <input type="password" id="passwordLogin" name="password" placeholder="Enter your password" required />
+        
+        <button type="submit">Login</button>
+      </form>
+      <div class="footer-text">
+        Don't have an account? <a id="showRegister" href="javascript:void(0)">Register here</a>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    const registerSection = document.getElementById('registerSection');
+    const loginSection = document.getElementById('loginSection');
+    const showLoginLink = document.getElementById('showLogin');
+    const showRegisterLink = document.getElementById('showRegister');
+
+    showLoginLink.addEventListener('click', () => {
+      registerSection.classList.remove('active');
+      loginSection.classList.add('active');
+    });
+
+    showRegisterLink.addEventListener('click', () => {
+      loginSection.classList.remove('active');
+      registerSection.classList.add('active');
+    });
+  </script>
+</body>
+</html>
